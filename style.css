@@ -17,7 +17,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    background-image: ;
+
 }
 
 header {
@@ -47,21 +47,23 @@ header img {
 
 }
 
-.header__button {}
 
 main {
     width: 100%;
     margin: 0 auto;
+    padding: 5% 0;
+    background-image: url('img/back3.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .grid {
-
     width: 90%;
     min-width: 320px;
-    margin: 5% auto;
+    margin: 0 auto;
     height: 90vh;
-
-
 }
 
 .grid__container {
@@ -85,10 +87,14 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px white;
+    opacity: .9;
 }
 
 .grid__container--item:nth-of-type(1) {
     grid-column: 1 / span 2;
+
 }
 
 .grid__container--item:nth-of-type(2) {
@@ -128,11 +134,14 @@ main {
     max-height: 150px;
     width: 100%;
     align-self: center;
+
 }
 
 .grid__container .orange {
+
     filter: brightness(0%);
     background-color: orange;
+
 }
 
 .grid__container .orange.light {
