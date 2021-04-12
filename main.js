@@ -107,9 +107,10 @@ class Juego{
         for(let i = 0; i<this.nivel; i++){
             const color = this.transformarNumeroAColor(this.secuencia[i])
             console.log(color)
+
             setTimeout(()=>{
                 this.iluminarColor(color)
-            }, 1000 * .1)
+            }, 1000 * i)
         }
     }
     iluminarColor(color){
@@ -142,9 +143,11 @@ class Juego{
         this.colores.pink.removeEventListener('click', this.elegirColor)
     }
     elegirColor(ev){
+        console.log(ev)
         const nombreColor = ev.target.dataset.color
+        // debugger
         const numeroColor = this.transformarColorANumero(nombreColor)
-        this.iluminarColor(numeroColor)
+        this.iluminarColor(nombreColor)
         if( numeroColor === this.secuencia[this.subnivel]){
             this.subnivel ++
             if( this.subnivel === this.nivel){
