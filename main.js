@@ -12,17 +12,20 @@ const pink = document.getElementById('pink')
 
 const btnIniciar = document.getElementById('btnIniciar')
 
+const ULTIMO_NIVEL = 2
+
 class Juego{
     constructor(){
         this.inicializar = this.inicializar.bind(this)
         this.inicializar()
         this.generarSecuencia()
-        this.siguienteNivel()
+        setTimeout(this.siguienteNivel(), 500) 
     }
 
     inicializar(){
         this.siguienteNivel = this.siguienteNivel.bind(this)
-        this.elegirColor = this.elegirColor(this)
+        this.elegirColor = this.elegirColor.bind(this)
+        this.toogleBtnEmpezar()
         this.nivel = 1
         this.colores = {
             orange,
@@ -36,15 +39,22 @@ class Juego{
             pink
         }
     }
-
+    toogleBtnEmpezar(){
+        if(btnIniciar.classList.contains('hide')){
+            btnIniciar.classList.remove('hide')
+        }else{
+            btnIniciar.classList.add('hide')
+        }
+    }
     generarSecuencia(){
-        this.secuencia = new Array(3).fill(0).map(n=> Math.floor(Math.random() * 9))
+        this.secuencia = new Array(ULTIMO_NIVEL).fill(0).map(n=> Math.floor(Math.random() * 9))
         console.log(this.secuencia)
     }
 
     siguienteNivel(){
         this.subnivel = 0
         this.iluminarSecuencia()
+        this.agregarEventosClick()
     }
 
     transformarNumeroAColor(numero){
@@ -120,16 +130,16 @@ class Juego{
         this.colores.black.addEventListener('click', this.elegirColor)
         this.colores.pink.addEventListener('click', this.elegirColor)
     }
-    agregarEventosClick(){
-        this.colores.orange.addEventListener('click', this.elegirColor)
-        this.colores.blue.addEventListener('click', this.elegirColor)
-        this.colores.green.addEventListener('click', this.elegirColor)
-        this.colores.brown.addEventListener('click', this.elegirColor)
-        this.colores.yellow.addEventListener('click', this.elegirColor)
-        this.colores.skyblue.addEventListener('click', this.elegirColor)
-        this.colores.purple.addEventListener('click', this.elegirColor)
-        this.colores.black.addEventListener('click', this.elegirColor)
-        this.colores.pink.addEventListener('click', this.elegirColor)
+    eliminarEventosClick(){
+        this.colores.orange.removeEventListener('click', this.elegirColor)
+        this.colores.blue.removeEventListener('click', this.elegirColor)
+        this.colores.green.removeEventListener('click', this.elegirColor)
+        this.colores.brown.removeEventListener('click', this.elegirColor)
+        this.colores.yellow.removeEventListener('click', this.elegirColor)
+        this.colores.skyblue.removeEventListener('click', this.elegirColor)
+        this.colores.purple.removeEventListener('click', this.elegirColor)
+        this.colores.black.removeEventListener('click', this.elegirColor)
+        this.colores.pink.removeEventListener('click', this.elegirColor)
     }
     elegirColor(ev){
         const nombreColor = ev.target.dataset.color
@@ -140,8 +150,26 @@ class Juego{
             if( this.subnivel === this.nivel){
                 this.nivel ++
                 this.eliminarEventosClick()
+                if(this.nivel === (ULTIMO_NIVEL + 1)){
+                    this.ganoElJuego()
+                }else{
+                    setTimeout(this.siguienteNivel, 1500)
+                }
             }
+        }else{
+            this.perdioElJuego()
         }
+    }
+    ganoElJuego(){
+        swal("Ganaste!", "Buen tarbajo!", "felicitaciones")
+        .then(this.inicializar)
+    }
+    perdioElJuego(){
+        swal('Perdite!', 'Lo lamentamos, perdiste el juego :(', 'error')
+        .then(()=>{
+            this.eliminarEventosClick()
+            this.inicializar()
+        })
     }
 }
 
