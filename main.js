@@ -110,12 +110,12 @@ class Juego{
 
             setTimeout(()=>{
                 this.iluminarColor(color)
-            }, 1000 * i)
+            }, 2000 * i)
         }
     }
     iluminarColor(color){
         this.colores[color].classList.add('light')
-        setTimeout(() => this.apagarColor(color), 700)
+        setTimeout(() => this.apagarColor(color), 1500)
     }
     apagarColor(color){
         this.colores[color].classList.remove('light')
@@ -156,7 +156,7 @@ class Juego{
                 if(this.nivel === (ULTIMO_NIVEL + 1)){
                     this.ganoElJuego()
                 }else{
-                    setTimeout(this.siguienteNivel, 1500)
+                    setTimeout(this.siguienteNivel, 2500)
                 }
             }
         }else{
@@ -164,7 +164,7 @@ class Juego{
         }
     }
     ganoElJuego(){
-        swal("Ganaste!", "Buen tarbajo!", "felicitaciones")
+        swal("Ganaste!", "Buen tarbajo!", "success")
         .then(this.inicializar)
     }
     perdioElJuego(){
