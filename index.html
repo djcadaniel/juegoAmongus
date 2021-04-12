@@ -5,10 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego</title>
-    <link rel="icon" href="">
+    <link rel="icon" href="img/descarga.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/desktop.css" media="(min-width:768px)">
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="header">
+        <img src="img/logo.png" alt="logo del juego amongus" >
+        <div class="header__container">
+            <h1>Juego Amongus - Daniel Jesús Castro Alejos</h1>
+            <p>Este juego está creado en javascript, utilizando variedad de funciones...</p>
+            <a href="" class="header__button"></a>
+        </div>
+    </header>
+    <main>
+        <section class="grid">
+            <div class="grid__container">
+                <div id="orange" class="grid__container--item orange" data-color="orange">
+                    <img src="img/1.png" alt="" >
+                </div>
+                <div id="blue" class="grid__container--item blue" data-color="blue">
+                    <img src="img/2.png" alt="" >
+                </div>
+                <div id="green" class="grid__container--item green" data-color="green">
+                    <img src="img/3.png" alt="" >
+                </div>
+                <div id="brown" class="grid__container--item brown" data-color="brown">
+                    <img src="img/4.png" alt="" >
+                </div>
+                <div id="yellow" class="grid__container--item yellow" data-color="yellow">
+                    <img src="img/5.png" alt="" >
+                </div>
+                <div id="skyblue" class="grid__container--item skyblue" data-color="skyblue">
+                    <img src="img/6.png" alt="" >
+                </div>
+                <div id="purple" class="grid__container--item purple" data-color="purple">
+                    <img src="img/7.png" alt="" >
+                </div>
+                <div id="black" class="grid__container--item black" data-color="black">
+                    <img src="img/8.png" alt="" >
+                </div>
+                <div id="pink" class="grid__container--item pink ">
+                    <img src="img/9.png" alt="" >
+                </div>
+                <button id="btnIniciar" class="grid__container--button" onclick="empezarJuego()">Play</button>
+            </div>
+        </section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+    </main>
+    <script src="main.js"></script>
 </body>
 </html>
