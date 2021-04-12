@@ -1,6 +1,7 @@
 header {
     display: flex;
     flex-direction: row;
+    color: white;
     background-color: green;
 }
 
@@ -47,9 +48,9 @@ header {
 }
 
 .grid__container--button {
-    top: calc(50% - 150px);
+    top: calc(50% - 120px);
     padding: 13%;
     border-radius: 50%;
     font-size: 4rem;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(9, 221, 9, 0.8);
 }

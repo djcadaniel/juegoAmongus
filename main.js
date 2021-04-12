@@ -19,7 +19,7 @@ class Juego{
         this.inicializar = this.inicializar.bind(this)
         this.inicializar()
         this.generarSecuencia()
-        setTimeout(this.siguienteNivel(), 500) 
+        setTimeout(this.siguienteNivel(), 1000) 
     }
 
     inicializar(){
@@ -110,12 +110,12 @@ class Juego{
 
             setTimeout(()=>{
                 this.iluminarColor(color)
-            }, 2000 * i)
+            }, 2000 * i + 1000)
         }
     }
     iluminarColor(color){
         this.colores[color].classList.add('light')
-        setTimeout(() => this.apagarColor(color), 1500)
+        setTimeout(() => this.apagarColor(color), 500)
     }
     apagarColor(color){
         this.colores[color].classList.remove('light')
@@ -156,7 +156,7 @@ class Juego{
                 if(this.nivel === (ULTIMO_NIVEL + 1)){
                     this.ganoElJuego()
                 }else{
-                    setTimeout(this.siguienteNivel, 2500)
+                    setTimeout(this.siguienteNivel, 1500)
                 }
             }
         }else{
@@ -164,11 +164,11 @@ class Juego{
         }
     }
     ganoElJuego(){
-        swal("Ganaste!", "Buen tarbajo!", "success")
+        swal("Ganaste!", "Buen trabajo!", "success")
         .then(this.inicializar)
     }
     perdioElJuego(){
-        swal('Perdite!', 'Lo lamentamos, perdiste el juego :(', 'error')
+        swal('Perdiste!', 'Lo lamentamos, perdiste el juego :(', 'error')
         .then(()=>{
             this.eliminarEventosClick()
             this.inicializar()

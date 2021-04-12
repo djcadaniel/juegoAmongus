@@ -17,6 +17,7 @@ html {
 
 body {
     font-size: 1.6rem;
+    background-image: ;
 }
 
 header {
@@ -29,7 +30,7 @@ header {
     padding: 2%;
     /* height: 334px; */
     text-align: center;
-    border: 2px solid green;
+
 }
 
 
@@ -59,7 +60,7 @@ main {
     min-width: 320px;
     margin: 5% auto;
     height: 90vh;
-    border: 2px solid blue;
+
 
 }
 
@@ -74,7 +75,7 @@ main {
     margin: 0 auto;
     height: 90vh;
     min-width: 320px;
-    border: 2px solid red;
+
 }
 
 .grid__container--item {
@@ -219,7 +220,7 @@ main {
     border: none;
     cursor: pointer;
     color: white;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(9, 221, 9, 0.8);
 }
 
 .hide {
